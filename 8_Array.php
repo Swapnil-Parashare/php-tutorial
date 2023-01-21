@@ -17,6 +17,14 @@
         echo "$friends[3] <br>";
 
         echo count($friends);
+
+        // Multidimensional Array : Exactly same as C++ (Accessing and stuff).
+        $cars = array (
+            array("Volvo",22,18),
+            array("BMW",15,13),
+            array("Saab",5,2),
+            array("Land Rover",17,15)
+          );
     ?>
     
 </body>
