@@ -9,7 +9,7 @@
 <body>
     <?php
         trait Simple
-        {
+        { 
             public function addition($num1,$num2)
             {
                 return $num1+$num2;
@@ -19,6 +19,12 @@
             {
                 return $num1-$num2;
             }
+
+            private function modulus($num1, $num2)
+            {
+                return $num1%$num2;
+            }
+
         }
 
         trait Advance
@@ -37,6 +43,11 @@
         class Class1
         {
             use Simple,Advance;
+
+            public function usePrivateTriatFunction($num1,$num2)
+            {
+                return $this->modulus($num1,$num2);
+            }
         }
 
         class Class2
@@ -51,6 +62,12 @@
 
         echo "Addition : " . $obj1->addition(11,51) . "<br> Substraction : " . $obj1->substraction(50,30);
         echo "<br>Multiplication : " . $obj1->multiplication(11,51) . "<br> Division : ". $obj1->division(60,30);
+        
+        // echo "<br>Modulus : " . $obj1->modulus(11,2) ;      // IMP : Cannot access private triat function outside the class.
+
+        echo "<br><h4>Accessing private triat function, inside class method itself.</h4>";
+        echo "Modulus : " . $obj1->usePrivateTriatFunction(11,2) ;      // IMP : Accessing Private Triat Function in Class Method itself.
+     
 
         echo "<br><h3>Object2 using the functionality of the trait used by Object1 :- </h3>";
 
